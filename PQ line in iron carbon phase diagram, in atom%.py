@@ -15,29 +15,21 @@ def target_func(x,a0, b2, a1, a2, a3):
 def line(x, k, b0):
     return k * x + b0
 
-#a0 = max(y) - min(y)
-#a1 = x[round(len(x) / 2)]
-#a2 = x[round(len(x) / 2)]
-#a3 = min(y)
-#ar = [a0, a1, a2, a3]
 
-k=(max(y)-min(y))/(max(x)-min(x))
-b0= min(y)
-p_line=[k, b0]
+
 
 para, cov = optimize.curve_fit(target_func, x, y,maxfev=100000000)
-para_1, cov_1 = optimize.curve_fit(line, x, y, p0=p_line)
 
 print(para)
-print(para_1)
+print(cov)
 
 y_fit = [target_func(a, *para) for a in x]
-y_fit_1 = [line(c, *para_1) for c in x]
+
+corr_corf=np.corrcoef(y,y_fit)
 print(y_fit)
-print(y_fit_1)
+print(corr_corf)
 
 ax.plot(x, y_fit)
-ax.plot(x, y_fit_1, 'g')
 cursor = Cursor(ax, useblit=True, color='red', linewidth=0.5)
 
 plt.show()
