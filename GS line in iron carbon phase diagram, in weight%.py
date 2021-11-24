@@ -1,6 +1,7 @@
 import numpy as np
 import matplotlib.pyplot as plt
 import scipy.optimize as optimize
+from matplotlib.widgets import Cursor
 pi = np.pi
 # 模拟生成一组实验数据
 x = (0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.77)
@@ -31,5 +32,10 @@ print(y_fit)
 print(corr_corf)
 
 ax.plot(x, y_fit)
-
+r2='R^2='+str(corr_corf[0,1])
+equation='y='+str(para[0])+'\nexp[-'+str(para[1])+'x^2\n-'+str(para[2])+'x]\n+'+str(para[3])
+plt.text(0.3,875,r2,fontsize=16)
+plt.text(0,800,equation,fontsize=16)
+cursor = Cursor(ax, useblit=True, color='red', linewidth=0.5)
 plt.show()
+
