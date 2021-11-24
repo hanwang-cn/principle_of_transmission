@@ -3,7 +3,6 @@ import matplotlib.pyplot as plt
 import scipy.optimize as optimize
 from matplotlib.widgets import Cursor
 
-
 x=(0,0.0025,0.005,0.01,0.015,0.02,0.025,0.03,0.035,0.04,0.045,0.05,0.055,0.07,0.085,0.1,0.104)
 y = (25,444,484,540,567,590,610,622,636,644,652,660,666,689,706,720,727)
 
@@ -15,10 +14,7 @@ def target_func(x,a0, b2, a1, a2, a3):
 def line(x, k, b0):
     return k * x + b0
 
-
-
-
-para, cov = optimize.curve_fit(target_func, x, y,maxfev=100000000)
+para, cov = optimize.curve_fit(target_func, x, y,maxfev=900000000)
 
 print(para)
 print(cov)
