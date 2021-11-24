@@ -28,7 +28,7 @@ print(corr_corf)
 r2='R^2='+str(corr_corf[0,1])
 equation='y='+str(para[0])+'*\nln[-'+str(para[1])+'x^2\n+'+str(para[2])+'x\n+'+str(para[3])+']\n+'+str(para[4])
 plt.text(0.03,105,r2,fontsize=16)
-plt.text(0.005,230,equation,fontsize=16)
+plt.text(0.015,230,equation,fontsize=16)
 ax.plot(x, y_fit)
 cursor = Cursor(ax, useblit=True, color='red', linewidth=0.5)
 
